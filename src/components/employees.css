@@ -1,0 +1,79 @@
+
+.employees-box
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3em;
+    background-color: black;
+}
+
+.current-employees
+{
+    width: 50%;
+    height: 100%;
+    /* background-color: rgb(9, 240, 148); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.employees
+{
+    width: 95%;
+    height: 97%;
+    border: 4px solid aqua;
+    border-top: none;
+    border-right: none;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    flex-direction: column;
+    gap: 0.4em;
+}
+
+.previous-employees
+{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: rgb(5, 253, 199); */
+}
+
+.deleted-employees
+{
+    width: 95%;
+    height: 97%;
+    border: 4px solid aqua;
+    border-left: none;
+    border-top: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.4em;
+}
+
+.title
+{
+    width: 96%;
+    height: 5%;
+    border: 2px solid aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100%;
+    font-weight: bold;
+    color: aqua;
+}
+
+.employees-table
+{
+    width: 97%;
+    height: 95%;
+    background-color: white;
+}
