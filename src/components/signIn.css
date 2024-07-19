@@ -17,20 +17,24 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 0.2em;
 }
 
 .admin
 {
     background-color: black;
-    width: 65%;
+    width: 75%;
     height: 5%;
-    color: aqua;
+    color: red;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
     font-size: 90%;
-    border-bottom: 3px solid aqua;
+    border: 3px solid aqua;
+    border-top: none;
+    border-bottom: none;
+    border-radius: 10%;
 }
 form
 {
@@ -44,6 +48,8 @@ form
     gap: 1em;
     border: 3px solid aqua;
     border-top: none;
+    border-bottom: none;
+    border-radius: 5%;
 }
 form input
 {
@@ -70,16 +76,19 @@ form button
     font-size: 70%;
     border: 2px solid aqua;
     border-top: none;
-    color: aqua;
+    border-bottom: none;
+    color: red;
     background-color: black;
+    border-radius: 10%;
 }
 
 form button:hover
 {
-    background-color: rgb(5, 104, 71);
-    border: rgb(5, 104, 71);
-    color: black;
-    transition: all 2s ease-in-out;
+    border: 2px solid rgb(5, 104, 71);
+    border-top: none;
+    border-bottom: none;
+    color: rgb(5, 104, 71);
+    transition: all 1s ease-in-out;
 }
 .logo-box
 {

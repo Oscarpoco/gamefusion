@@ -1,7 +1,7 @@
 .registration-box
 {
     width: 35%;
-    height: 97%;
+    height: 88%;
     background-color: black;
     display: flex;
     flex-direction: column;
@@ -9,6 +9,8 @@
     align-items: center;
     border: 3px solid aqua;
     border-top: none;
+    border-bottom: none;
+    border-radius: 5%;
 }
 
 .form-title
@@ -17,11 +19,13 @@
     height: 7%;
     border: 3px solid aqua;
     border-top: none;
+    border-bottom: none;
     color: aqua;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
+    border-radius: 10%;
 }
 
 .registration-box form
@@ -45,11 +49,15 @@
 .registration-box button
 {
     width: 40%;
-    height: 9%;
+    height: 8%;
+    border-radius: 10%;
+    border-bottom: none;
+    font-size: 65%;
 }
 
 #image
 {
     /* border: 1px solid aqua; */
     height: 4%;
+    background-color: black;
 }
