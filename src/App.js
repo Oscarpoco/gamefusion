@@ -17,8 +17,7 @@ function App() {
       {/* SIDEBAR */}
       <aside>
         <div className='name'>
-          <div className='main-logo'><img src='admin.jpeg' alt='logo'></img></div>
-          <div className='gamefusion'><p>GAMEFUSION</p></div>
+          <div className='gamefusion'><p>GAME<span>FUSION</span></p></div>
         </div>
       </aside>
       {/* ENDS */}
@@ -31,7 +30,7 @@ function App() {
           <NavBar />
         </nav>
         <div className='content'>
-          {/* <SignIn /> */}
+          <SignIn />
           {/* <Employees /> */}
           {/* <Registration /> */}
           {/* <Profile /> */}
@@ -42,9 +41,9 @@ function App() {
 
 
       {/* SIDEBAR */}
-      <div className='sidebar'>
-        
-      </div>
+      {/* <div className='sidebar'>
+
+      </div> */}
       {/* ENDS */}
     </div>
   );

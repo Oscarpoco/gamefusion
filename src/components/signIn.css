@@ -1,7 +1,7 @@
 .form-box
 {
     height: 100%;
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -104,4 +104,26 @@ form button:hover
 {
     width: 50%;
     height: 45%;
+}
+
+@media only screen and (max-width: 768px)
+{
+    .form-box
+    {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .sign-in-form
+    {
+        height: 50%;
+        width: 80%;
+    }
+    .logo-box
+    {
+        height: 50%;
+        width: 70%;
+        align-items: start;
+    }
+    
 }
