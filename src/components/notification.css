@@ -1,0 +1,23 @@
+.notification {
+    width: 50%;
+    height: 15%;
+    font-size: auto;
+    border-radius: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .notification.error {
+    background-color: black;
+    color: red;
+    border: 1px solid aqua;
+    border-bottom: none;
+    border-top: none;
+  }
+  
+  .notification.success {
+    background-color: black;
+    color: greenyellow;
+    border: 1px solid aqua;
+  }
