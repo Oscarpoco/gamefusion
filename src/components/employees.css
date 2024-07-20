@@ -14,7 +14,6 @@
 {
     width: 50%;
     height: 100%;
-    /* background-color: rgb(9, 240, 148); */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,8 +22,8 @@
 .employees
 {
     width: 95%;
-    height: 97%;
-    border: 4px solid aqua;
+    height: 100%;
+    border: 3px solid aqua;
     border-top: none;
     border-right: none;
     display: flex;
@@ -47,15 +46,15 @@
 .deleted-employees
 {
     width: 95%;
-    height: 97%;
-    border: 4px solid aqua;
+    height: 100%;
+    border: 3px solid aqua;
     border-left: none;
     border-top: none;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: start;
-    gap: 1.4em;
+    gap: .4em;
     
 }
 
@@ -69,19 +68,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 70%;
+    font-size: 60%;
     font-weight: bold;
-    color: red;
+    color: rgb(255, 0, 0);
 }
 
 .employees-table
 {
     width: 97%;
     height: 95%;
-    background-color: black;
+    background-color: inherit;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
 }
 
@@ -95,16 +93,14 @@
 .employees-table th, .employees-table td 
 {
     border: 1px solid aqua;
-    /* padding: 8px; */
-   
-    text-align: left;
+    text-align: center;
+
+    
 }
 
 .employees-table th 
 {
     background-color: inherit;
-    /* font-weight: bold; */
-    /* font-size: 2px; */
     font-size: 50%;
 }
 
@@ -113,12 +109,6 @@
     background-color: black;
     font-size: 50%;
 }
-
-.employees-table tr 
-{
-    width: 50%;
-}
-
 
 .employees-table img 
 {
@@ -158,23 +148,30 @@ p
     {
         flex-direction: column;
         align-items: center;
+        height: 100%;
     }
 
     .current-employees
     {
-        height: 90%;
-        width: 95%;
+        height: 50%;
+        width: 98%;
     }
 
     .previous-employees
     {
-        height: 90%;
-        width: 95%;
+        height: 50%;
+        width: 98%;
     }
 
     .title
     {
         font-size: auto;
+        height: 7%;
+    }
+
+    .employees-table
+    {
+    height: 93%;
     }
     
 }
