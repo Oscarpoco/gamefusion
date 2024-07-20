@@ -70,24 +70,19 @@ function App() {
   return (
     <div className="App">
       
-      <aside>
-        <div className='name'>
-          <div className='gamefusion'><p>GAME<span>FUSION</span></p></div>
-        </div>
-      </aside>
-      
-      
-        
-
-
       {/* MAIN */}
       <main>
-        {isLoggedIn && (
+        
 
           <nav>
-          <NavBar onNavigate={setCurrentView} onSignOut={handleSignOut} />
+            <div className='name'>
+              <div className='gamefusion'><p>GAME<span>FUSION</span></p></div>
+            </div>
+          {isLoggedIn && (
+            <NavBar onNavigate={setCurrentView} onSignOut={handleSignOut} />
+          )}
           </nav>
-        )}
+        
         
 
         <div className='content'>

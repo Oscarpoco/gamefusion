@@ -1,11 +1,11 @@
 
 .myNav
 {
-    width: 95%;
+    width: 80%;
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: center;
     gap: 1em;
 }
 
@@ -37,6 +37,7 @@
   .myNav
   {
     gap: 3em;
+    height: 35%;
   }
   .myNav button
   {
