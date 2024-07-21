@@ -6,18 +6,30 @@ function Profile({employee, onUpdateEmployee}){
     const [isEditing, setIsEditing] = useState(false);
     const [editedEmployee, setEditedEmployee] = useState({ ...employee });
 
+
+
+    // HANDLES THE CHANGE IN INPUTS
     const handleInputChange = (e) => {
     const { name, value } = e.target;
     setEditedEmployee((prev) => ({ ...prev, [name]: value }));
     };
+    // ENDS
 
+
+
+    // HANDLES THE EDIT AND AND UPDATES
     const handleEditClick = () => {
     if (isEditing) {
       onUpdateEmployee(editedEmployee);
     }
     setIsEditing(!isEditing);
     };
+    // ENDS
 
+
+
+
+    // MY PROFILE CONTENT
     return(
 
         <div className='profile-box'>
@@ -36,12 +48,14 @@ function Profile({employee, onUpdateEmployee}){
                         <p>Phone: {isEditing ? <input type='tel' name='phone' value={editedEmployee.phone} onChange={handleInputChange} /> : editedEmployee.phone}</p>
                     </div>
                     <div className='button'>
-                        <button onClick={handleEditClick}>{isEditing ? 'UPDATE' : 'Edit'}</button>
+                        <button onClick={handleEditClick}>{isEditing ? 'UPDATE' : 'EDIT'}</button>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    ) 
+    // ENDS
 }
+// FUCNTION ENDS
 
 export default Profile;
