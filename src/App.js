@@ -15,7 +15,8 @@ function App() {
   const [currentView, setCurrentView] = useState('signIn'); // Initial view
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [employees, setEmployees] = useState([]);
-  const [deletedEmployees, setDeletedEmployees] = useState([]); // Authentication state
+  const [deletedEmployees, setDeletedEmployees] = useState([]);
+  const [selectedEmployee, setSelectedEmployee] = useState(null); // Authentication state
 
    // Load employees from localStorage
    useEffect(() => {
@@ -41,7 +42,17 @@ function App() {
       setEmployees(employees.filter((_, i) => i !== index));
     };
 
+    const handleViewEmployee = (employee) => {
+      setSelectedEmployee(employee);
+      setCurrentView('profile');
+    };
 
+    const handleUpdateEmployee = (updatedEmployee) => {
+      setEmployees((prevEmployees) =>
+        prevEmployees.map((emp) => (emp.id === updatedEmployee.id ? updatedEmployee : emp))
+      );
+      setSelectedEmployee(updatedEmployee);
+    };
 
 
 
@@ -50,11 +61,11 @@ function App() {
       case 'signIn':
         return <SignIn onLogin={() => { setIsLoggedIn(true); setCurrentView('employees'); }} />;
       case 'employees':
-        return <Employees employees={employees} onDeleteEmployee={handleDeleteEmployee} deletedEmployees={deletedEmployees} />;
+        return <Employees employees={employees} onDeleteEmployee={handleDeleteEmployee} onViewEmployee={handleViewEmployee} deletedEmployees={deletedEmployees} />;
       case 'registration':
         return <Registration onAddEmployee={handleAddEmployee} />;
       case 'profile':
-        return <Profile />;
+        return <Profile employee={selectedEmployee} onUpdateEmployee={handleUpdateEmployee} />;
       default:
         return <SignIn onLogin={() => { setIsLoggedIn(true); setCurrentView('employees'); }} />;
     }

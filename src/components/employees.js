@@ -1,7 +1,7 @@
 import React from 'react';
 import './employees.css';
 
-function Employees({ employees, onDeleteEmployee, deletedEmployees }) {
+function Employees({ employees, onDeleteEmployee, onViewEmployee,deletedEmployees }) {
   return (
     <div className='employees-box'>
       <div className='current-employees'>
@@ -33,6 +33,7 @@ function Employees({ employees, onDeleteEmployee, deletedEmployees }) {
                       <td>{employee.phone}</td>
                       <td><img src={employee.image} alt='employee' width='50' /></td>
                       <td>
+                        <button onClick={() => onViewEmployee(employee)}>View</button>
                         <button onClick={() => onDeleteEmployee(index)}>Delete</button>
                       </td>
                     </tr>
