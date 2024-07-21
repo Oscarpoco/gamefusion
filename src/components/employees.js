@@ -31,7 +31,7 @@ function Employees({ employees, onDeleteEmployee, onViewEmployee,deletedEmployee
                       <td>{employee.id}</td>
                       <td>{employee.position}</td>
                       <td>{employee.phone}</td>
-                      <td><img src={employee.image} alt='employee' width='50' /></td>
+                      <td><img src={employee.image} alt='employee'/></td>
                       <td>
                         <button onClick={() => onViewEmployee(employee)}>View</button>
                         <button onClick={() => onDeleteEmployee(index)}>Delete</button>

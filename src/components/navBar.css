@@ -15,10 +15,9 @@
     height: 50%;
     border-radius: 10%;
     border: 2px solid aqua;
-    border-top: none;
     border-bottom: none;
     background-color: inherit;
-    font-size: 65%;
+    font-size: 50%;
     font-weight: bold;
     color: red;
 }
@@ -26,7 +25,6 @@
 .myNav button:hover
 {
   border: 2PX solid rgba(6, 97, 67, 0.942);
-  border-top: none;
   border-bottom: none;
   color: rgba(6, 97, 67, 0.942);
   transition: all .7s ease-in-out;
@@ -43,7 +41,7 @@
   {
     width: auto;
     height: 40%;
-    font-size: auto;
+    font-size: 40%;
   }
   
 }

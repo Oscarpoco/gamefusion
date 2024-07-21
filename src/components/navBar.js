@@ -8,7 +8,7 @@ function NavBar({ onNavigate, onSignOut}){
         <div className='myNav'>
             <button onClick={() => onNavigate('employees')}>EMPLOYEES</button>
             <button onClick={() => onNavigate('registration')}>REGISTER</button>
-            <button onClick={onSignOut}>SIGN OUT</button>
+            <button onClick={onSignOut}>LOGOUT</button>
         </div>
     )
 }

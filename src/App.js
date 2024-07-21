@@ -16,7 +16,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [employees, setEmployees] = useState([]);
   const [deletedEmployees, setDeletedEmployees] = useState([]);
-  const [selectedEmployee, setSelectedEmployee] = useState(null); // Authentication state
+  const [selectedEmployee, setSelectedEmployee] = useState(null); 
 
    // Load employees from localStorage
    useEffect(() => {

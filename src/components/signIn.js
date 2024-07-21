@@ -12,7 +12,7 @@ function SignIn({ onLogin }){
     const handleLogin = (event) => {
         event.preventDefault();
         
-        // Example validation: check if username and password match hardcoded credentials
+      
         if (username === 'admin' && password === 'password') {
             onLogin();
         } else {

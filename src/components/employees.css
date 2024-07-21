@@ -2,7 +2,8 @@
 .employees-box
 {
     width: 100%;
-    height: 100%;
+    height: 95%;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,28 +76,26 @@
 
 .employees-table
 {
-    width: 97%;
+    width: 96%;
     height: 95%;
     background-color: inherit;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
+    overflow-X: hidden;
 }
 
 .employees-table::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 8px;
   }
   
   .employees-table::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
+    background: rgb(109, 4, 4);
   }
   
   .employees-table::-webkit-scrollbar-thumb {
     background: aquamarine;
-    border-radius: 10px;
   }
   
   .employees-table::-webkit-scrollbar-thumb:hover {
@@ -139,14 +138,10 @@
 
 button 
 {
-    /* padding: 5px 10px; */
-    /* margin-top: 5px; */
     cursor: pointer;
     background-color: black;
     color: aqua;
-    border: none;
-    border-left: 1px solid red;
-    border-right: 1px solid red;
+    border: 1px solid red;
     border-radius: 10%;
     font-size: 100%;
 }
@@ -169,7 +164,7 @@ p
     {
         flex-direction: column;
         align-items: center;
-        height: 100%;
+        height: 90%;
     }
 
     .current-employees
@@ -186,13 +181,31 @@ p
 
     .title
     {
-        font-size: auto;
-        height: 7%;
+        font-size: 40%;
+        height: 10%;
+        align-items: end;
     }
 
     .employees-table
     {
-    height: 93%;
+    height: 90%;
+    overflow-x: hidden;
+    }
+
+    .employees-table th 
+    {
+        background-color: inherit;
+        font-size: 50%;
+    }
+
+    .employees-table td 
+    {
+        background-color: black;
+        font-size: 20%;
     }
     
+    button 
+    {
+        font-size: 50%;
+    }
 }
