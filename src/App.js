@@ -28,19 +28,27 @@ function App() {
     }, []);
 
   
-   // Load employees from localStorage
+  //  // Load employees from localStorage
    useEffect(() => {
-    const storedEmployees = JSON.parse(localStorage.getItem('employees')) || [];
-    const storedDeletedEmployees = JSON.parse(localStorage.getItem('deletedEmployees')) || [];
-    setEmployees(storedEmployees);
-    setDeletedEmployees(storedDeletedEmployees);
+    const storedEmployees = localStorage.getItem('employees');
+    if (storedEmployees){ 
+      setEmployees(JSON.parse(storedEmployees));
+    }
+
+    const storedDeletedEmployees = localStorage.getItem('deletedEmployees');
+    if (storedDeletedEmployees){ 
+      setDeletedEmployees(JSON.parse(storedDeletedEmployees));
+    }
+    
+    
     }, []);
 
      // Save employees to localStorage
      useEffect(() => {
       localStorage.setItem('employees', JSON.stringify(employees));
       localStorage.setItem('deletedEmployees', JSON.stringify(deletedEmployees));
-    }, [employees, deletedEmployees]);
+    });
+    
 
   
 

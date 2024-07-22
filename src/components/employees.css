@@ -79,9 +79,10 @@
     align-items: center;
     justify-content: start;
     align-items: center;
+    /* background-color: #fff; */
     gap: 0.5em;
     height: 6%;
-    width: 96%;
+    width: 97%;
 }
   
 .search-box input 
@@ -116,7 +117,7 @@
 
 .employees-table
 {
-    width: 90%;
+    width: 97%;
     height: 95%;
     background-color: inherit;
     display: flex;
