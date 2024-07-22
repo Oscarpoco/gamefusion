@@ -1,11 +1,11 @@
-
+import { useState, useEffect } from 'react';
 import './App.css';
 import SignIn from './components/signIn';
 import Employees from './components/employees';
 import Registration from './components/registration';
 import Profile from './components/profile';
 import NavBar from './components/navBar';
-import { useState, useEffect } from 'react';
+
 
 
 
@@ -18,6 +18,16 @@ function App() {
   const [deletedEmployees, setDeletedEmployees] = useState([]);
   const [selectedEmployee, setSelectedEmployee] = useState(null); 
 
+
+
+   // Check login status on component mount
+   useEffect(() => {
+    const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    setIsLoggedIn(loggedIn);
+    setCurrentView(loggedIn ? 'employees' : 'signIn');
+    }, []);
+
+  
    // Load employees from localStorage
    useEffect(() => {
     const storedEmployees = JSON.parse(localStorage.getItem('employees')) || [];
@@ -26,11 +36,13 @@ function App() {
     setDeletedEmployees(storedDeletedEmployees);
     }, []);
 
-    // Save employees to localStorage
-    useEffect(() => {
+     // Save employees to localStorage
+     useEffect(() => {
       localStorage.setItem('employees', JSON.stringify(employees));
       localStorage.setItem('deletedEmployees', JSON.stringify(deletedEmployees));
     }, [employees, deletedEmployees]);
+
+  
 
     const handleAddEmployee = (employee) => {
       setEmployees([...employees, employee]);
@@ -54,12 +66,29 @@ function App() {
       setSelectedEmployee(updatedEmployee);
     };
 
+    // 
+      // Handle login
+  const handleLogin = () => {
+    localStorage.setItem('isLoggedIn', 'true');
+    setIsLoggedIn(true);
+    setCurrentView('employees');
+  };
+
+  // Handle sign-out
+  const handleSignOut = () => {
+    localStorage.removeItem('isLoggedIn');
+    setIsLoggedIn(false);
+    setCurrentView('signIn');
+  };
+
+    // 
+
 
 
   const renderContent = () => {
     switch (currentView) {
       case 'signIn':
-        return <SignIn onLogin={() => { setIsLoggedIn(true); setCurrentView('employees'); }} />;
+        return <SignIn onLogin={ handleLogin } />;
       case 'employees':
         return <Employees employees={employees} onDeleteEmployee={handleDeleteEmployee} onViewEmployee={handleViewEmployee} deletedEmployees={deletedEmployees} />;
       case 'registration':
@@ -67,14 +96,11 @@ function App() {
       case 'profile':
         return <Profile employee={selectedEmployee} onUpdateEmployee={handleUpdateEmployee} />;
       default:
-        return <SignIn onLogin={() => { setIsLoggedIn(true); setCurrentView('employees'); }} />;
+        return <SignIn onLogin={ handleLogin }/>;
     }
   };
 
-  const handleSignOut = () => {
-    setIsLoggedIn(false);
-    setCurrentView('signIn');
-  };
+  
 
 
 
