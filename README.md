@@ -2,4 +2,6 @@
 
 # TO ACCESS THE SCREENSHOT , OPEN THE PUBLIC FOLDER AND OPEN SCREENSHOTS FOLDER
 
+username = 'admin' , password = 'password'
+
 ![SKETCH](https://github.com/user-attachments/assets/00cd521a-d724-4bea-9218-aecd1f6f988b)
