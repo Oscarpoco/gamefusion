@@ -31,12 +31,12 @@ function App() {
   //  // Load employees from localStorage
    useEffect(() => {
     const storedEmployees = localStorage.getItem('employees');
-    if (storedEmployees){ 
+    if (storedEmployees !== null){ 
       setEmployees(JSON.parse(storedEmployees));
     }
 
     const storedDeletedEmployees = localStorage.getItem('deletedEmployees');
-    if (storedDeletedEmployees){ 
+    if (storedDeletedEmployees !== null){ 
       setDeletedEmployees(JSON.parse(storedDeletedEmployees));
     }
     
