@@ -5,6 +5,7 @@ import Employees from './components/employees';
 import Registration from './components/registration';
 import Profile from './components/profile';
 import NavBar from './components/navBar';
+import Loader from './components/Loader';
 
 
 
@@ -17,6 +18,7 @@ function App() {
   const [employees, setEmployees] = useState([]);
   const [deletedEmployees, setDeletedEmployees] = useState([]);
   const [selectedEmployee, setSelectedEmployee] = useState(null); 
+  const [isLoading, setIsLoading] = useState(false);
 
 
 
@@ -28,7 +30,7 @@ function App() {
     }, []);
 
   
-  //  // Load employees from localStorage
+  // Load employees from localStorage
    useEffect(() => {
     const storedEmployees = localStorage.getItem('employees');
     if (storedEmployees !== null){ 
@@ -48,45 +50,84 @@ function App() {
       localStorage.setItem('employees', JSON.stringify(employees));
       localStorage.setItem('deletedEmployees', JSON.stringify(deletedEmployees));
     });
-    
-
   
-
+    // HANDLE ADD EMPLOYEES
     const handleAddEmployee = (employee) => {
-      setEmployees([...employees, employee]);
-    };
+      
+      setIsLoading(true);
 
+      setTimeout(()=>{
+        setEmployees([...employees, employee]);
+        setIsLoading(false);
+        alert('Successfully added');
+      }, 2000);
+    };
+    // ENDS
+
+    // HANDLE DELETE EMPLOYEE
     const handleDeleteEmployee = (index) => {
-      const employeeToDelete = employees[index];
-      setDeletedEmployees([...deletedEmployees, employeeToDelete]);
-      setEmployees(employees.filter((_, i) => i !== index));
-    };
 
+      setIsLoading(true);
+
+      setTimeout(()=>{
+        const employeeToDelete = employees[index];
+        setDeletedEmployees([...deletedEmployees, employeeToDelete]);
+        setEmployees(employees.filter((_, i) => i !== index));
+        setIsLoading(false);
+        alert('Successfully deleted');
+      }, 2000);
+      
+    };
+    // ENDS
+
+    // HANDLE VIEW EMPLOYEE
     const handleViewEmployee = (employee) => {
-      setSelectedEmployee(employee);
-      setCurrentView('profile');
-    };
 
+      setIsLoading(true);
+
+      setTimeout(()=>{
+        setIsLoggedIn(true);
+        setSelectedEmployee(employee);
+        setCurrentView('profile');
+        setIsLoading(false);
+      }, 2000);
+    };
+    // ENDS
+
+
+    // HANDLE UPDATE EMPLOYEE
     const handleUpdateEmployee = (updatedEmployee) => {
       setEmployees((prevEmployees) =>
         prevEmployees.map((emp) => (emp.id === updatedEmployee.id ? updatedEmployee : emp))
       );
       setSelectedEmployee(updatedEmployee);
     };
+    // ENDS
 
-    // 
-      // Handle login
+    // Handle login
   const handleLogin = () => {
-    localStorage.setItem('isLoggedIn', 'true');
-    setIsLoggedIn(true);
-    setCurrentView('employees');
+    setIsLoading(true);
+
+    setTimeout(()=>{
+      localStorage.setItem('isLoggedIn', 'true');
+      setIsLoggedIn(true);
+      setCurrentView('employees');
+      setIsLoading(false);
+      alert('Successfully logged in');
+    }, 2000)
   };
 
   // Handle sign-out
   const handleSignOut = () => {
-    localStorage.removeItem('isLoggedIn');
-    setIsLoggedIn(false);
-    setCurrentView('signIn');
+    setIsLoading(true);
+
+    setTimeout(()=>{
+      localStorage.removeItem('isLoggedIn');
+      setIsLoggedIn(false);
+      setCurrentView('signIn');
+      setIsLoading(false);
+      alert('Successfully logged out');
+    }, 2000)
   };
 
     // 
@@ -108,6 +149,17 @@ function App() {
     }
   };
 
+  const handleNavigate = (currentView) => {
+    setIsLoading(true); 
+
+    // Set the new view
+    setCurrentView(currentView);
+
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  };
+
   
 
 
@@ -124,7 +176,7 @@ function App() {
               <div className='gamefusion'><p>GAME<span>FUXION</span></p></div>
             </div>
           {isLoggedIn && (
-            <NavBar onNavigate={setCurrentView} onSignOut={handleSignOut} />
+            <NavBar onNavigate={handleNavigate} onSignOut={handleSignOut} setIsLoading={setIsLoading}/>
           )}
           </nav>
         
@@ -136,6 +188,11 @@ function App() {
         
       </main>
       {/* ENDS */}
+
+      {/* POPUP */}
+      {isLoading && (
+        <Loader />
+      )}
 
     </div>
   );
