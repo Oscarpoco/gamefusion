@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './registration.css';
 
-function Registration({ onAddEmployee }) {
+function Registration({ onAddEmployee, setCurrentView }) {
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
@@ -22,6 +22,7 @@ function Registration({ onAddEmployee }) {
     setPosition('');
     setPhone('');
     setImage(null);
+    setCurrentView('employees');
   };
 
   return (

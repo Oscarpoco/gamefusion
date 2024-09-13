@@ -141,7 +141,7 @@ function App() {
       case 'employees':
         return <Employees employees={employees} onDeleteEmployee={handleDeleteEmployee} onViewEmployee={handleViewEmployee} deletedEmployees={deletedEmployees} />;
       case 'registration':
-        return <Registration onAddEmployee={handleAddEmployee} />;
+        return <Registration onAddEmployee={handleAddEmployee} setCurrentView={setCurrentView}/>;
       case 'profile':
         return <Profile employee={selectedEmployee} onUpdateEmployee={handleUpdateEmployee} />;
       default:
