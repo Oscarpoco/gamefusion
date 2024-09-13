@@ -121,7 +121,7 @@ function App() {
 
           <nav>
             <div className='name'>
-              <div className='gamefusion'><p>GAME<span>FUSION</span></p></div>
+              <div className='gamefusion'><p>GAME<span>FUXION</span></p></div>
             </div>
           {isLoggedIn && (
             <NavBar onNavigate={setCurrentView} onSignOut={handleSignOut} />
