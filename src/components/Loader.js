@@ -5,7 +5,7 @@ export default function Loader(){
 
     return(
         <div className="loader-layout">
-            <div class="lds-dual-ring"></div>
+            <div className="lds-dual-ring"></div>
         </div>
     )
 }

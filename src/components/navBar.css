@@ -2,24 +2,53 @@
 .myNav
 {
     width: 80%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1em;
+    box-sizing: border-box;
 }
 
-.myNav button
+button
 {
-    width: 13%;
-    height: 50%;
+    padding: .7em 1em;
     border-radius: 10%;
     border: 2px solid aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-bottom: none;
-    background-color: inherit;
+    background: inherit;
     font-size: 90%;
     font-weight: bold;
     color: red;
+}
+
+button.active
+{
+    background: aqua;
+    border: 2px solid aqua;
+    border-radius: 0;
+    color: black;
+    font-weight: 900;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+
+.logout-button
+{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 30%;
+ 
+}
+.navigate-button
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  gap: 1em;
 }
 
 .myNav button:hover
@@ -34,14 +63,43 @@
 {
   .myNav
   {
-    gap: 3em;
-    height: 35%;
+    gap: .5em;
+    justify-content: end;
   }
   .myNav button
   {
-    width: auto;
-    height: 40%;
     font-size: 40%;
+    border-radius: 0;
+    border: 2px solid white;
+    background: white;
+  }
+
+  button.active
+  {
+    font-size: 55%;
+    border-radius: 0;
+    border: 2px solid aqua;
+    background: aqua;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+  }
+
+  .myNav button:hover
+  {
+    border: 2px solid aqua;
+    border-bottom: none;
+    color: black;
+    transition: all .7s ease-in-out;
+  }
+
+  .logout-button
+  {
+    width: 25%;
+   
+  }
+  .navigate-button
+  {
+    width: 60%;
+    gap: .5em;
   }
   
 }

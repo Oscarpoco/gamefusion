@@ -10,6 +10,7 @@ function Registration({ onAddEmployee, setCurrentView }) {
   const [phone, setPhone] = useState('');
   const [image, setImage] = useState(null);
 
+  // HANDLE SUBMITTING FORM
   const handleSubmit = (e) => {
     e.preventDefault();
     const newEmployee = { name, surname, email, id, position, phone, image: URL.createObjectURL(image) };

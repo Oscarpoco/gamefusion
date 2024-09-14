@@ -15,6 +15,8 @@ function SignIn({ onLogin }){
       
         if (username === 'admin' && password === 'password') {
             onLogin();
+            setNotification('Successfully logged in');
+            setTimeout(() => setNotification(''), 2000); 
         } else {
             setNotification('Invalid credentials');
             setTimeout(() => setNotification(''), 3000); 
@@ -29,7 +31,7 @@ function SignIn({ onLogin }){
                     <input type='text' id='username' placeholder='Username' onChange={(e) => setUsername(e.target.value)} required></input>
                     <input type='password' id='password' placeholder='Password' onChange={(e) => setPassword(e.target.value)} required></input>
                     <button>LOGIN</button>
-                    {notification && <Notification message={notification} type="error" />}
+                    {notification && <Notification message={notification} type="success" />}
                 </form>
             </div>
             <div className='logo-box'>

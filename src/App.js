@@ -6,6 +6,7 @@ import Registration from './components/registration';
 import Profile from './components/profile';
 import NavBar from './components/navBar';
 import Loader from './components/Loader';
+import Notification from './components/notification';
 
 
 
@@ -13,18 +14,24 @@ import Loader from './components/Loader';
 
 function App() {
 
-  const [currentView, setCurrentView] = useState('signIn'); // Initial view
+  const [currentView, setCurrentView] = useState('signIn');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [employees, setEmployees] = useState([]);
   const [deletedEmployees, setDeletedEmployees] = useState([]);
   const [selectedEmployee, setSelectedEmployee] = useState(null); 
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [notification, setNotification] = useState('');
+
+  // FOR REFRESHING PURPOSE
+  setTimeout(()=>{
+    setIsLoading(false);
+  }, 1000)
 
 
 
    // Check login status on component mount
    useEffect(() => {
-    const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const loggedIn = window.localStorage.getItem('isLoggedIn') === 'true';
     setIsLoggedIn(loggedIn);
     setCurrentView(loggedIn ? 'employees' : 'signIn');
     }, []);
@@ -32,24 +39,32 @@ function App() {
   
   // Load employees from localStorage
    useEffect(() => {
-    const storedEmployees = localStorage.getItem('employees');
-    if (storedEmployees !== null){ 
+    
+    const storedEmployees = window.localStorage.getItem('employees');
+    if (storedEmployees){ 
       setEmployees(JSON.parse(storedEmployees));
     }
 
-    const storedDeletedEmployees = localStorage.getItem('deletedEmployees');
-    if (storedDeletedEmployees !== null){ 
+    const storedDeletedEmployees = window.localStorage.getItem('deletedEmployees');
+    if (storedDeletedEmployees){ 
       setDeletedEmployees(JSON.parse(storedDeletedEmployees));
     }
+    console.log('loading',storedEmployees)
+    console.log('loading deteted data',storedDeletedEmployees)
     
     
     }, []);
 
      // Save employees to localStorage
      useEffect(() => {
-      localStorage.setItem('employees', JSON.stringify(employees));
-      localStorage.setItem('deletedEmployees', JSON.stringify(deletedEmployees));
-    });
+      console.log('saving data', employees)
+      console.log('saving', deletedEmployees)
+      setTimeout(()=>{
+        window.localStorage.setItem('employees', JSON.stringify(employees));
+        window.localStorage.setItem('deletedEmployees', JSON.stringify(deletedEmployees));
+      })
+      
+    }, [employees, deletedEmployees]);
   
     // HANDLE ADD EMPLOYEES
     const handleAddEmployee = (employee) => {
@@ -59,7 +74,8 @@ function App() {
       setTimeout(()=>{
         setEmployees([...employees, employee]);
         setIsLoading(false);
-        alert('Successfully added');
+        setNotification('Successfully added');
+        setTimeout(() => setNotification(''), 2000); 
       }, 2000);
     };
     // ENDS
@@ -74,7 +90,8 @@ function App() {
         setDeletedEmployees([...deletedEmployees, employeeToDelete]);
         setEmployees(employees.filter((_, i) => i !== index));
         setIsLoading(false);
-        alert('Successfully deleted');
+        setNotification('Successfully deleted');
+        setTimeout(() => setNotification(''), 2000); 
       }, 2000);
       
     };
@@ -97,10 +114,17 @@ function App() {
 
     // HANDLE UPDATE EMPLOYEE
     const handleUpdateEmployee = (updatedEmployee) => {
+      setIsLoading(true);
+
+      setTimeout(()=>{
       setEmployees((prevEmployees) =>
         prevEmployees.map((emp) => (emp.id === updatedEmployee.id ? updatedEmployee : emp))
       );
       setSelectedEmployee(updatedEmployee);
+      setIsLoading(false);
+      setNotification('Successfully updated');
+      setTimeout(() => setNotification(''), 2000); 
+      }, 2000);
     };
     // ENDS
 
@@ -113,7 +137,6 @@ function App() {
       setIsLoggedIn(true);
       setCurrentView('employees');
       setIsLoading(false);
-      alert('Successfully logged in');
     }, 2000)
   };
 
@@ -126,7 +149,8 @@ function App() {
       setIsLoggedIn(false);
       setCurrentView('signIn');
       setIsLoading(false);
-      alert('Successfully logged out');
+      setNotification('Successfully signed out');
+      setTimeout(() => setNotification(''), 2000); 
     }, 2000)
   };
 
@@ -176,7 +200,7 @@ function App() {
               <div className='gamefusion'><p>GAME<span>FUXION</span></p></div>
             </div>
           {isLoggedIn && (
-            <NavBar onNavigate={handleNavigate} onSignOut={handleSignOut} setIsLoading={setIsLoading}/>
+            <NavBar onNavigate={handleNavigate} onSignOut={handleSignOut} setIsLoading={setIsLoading} currentView={currentView}/>
           )}
           </nav>
         
@@ -193,6 +217,9 @@ function App() {
       {isLoading && (
         <Loader />
       )}
+
+      {/* notification */}
+      {notification && <Notification message={notification} type="error" />}
 
     </div>
   );

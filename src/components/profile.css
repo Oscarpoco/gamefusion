@@ -43,7 +43,7 @@
 
 .img-circle
 {
-    width: 40%;
+    width: 50%;
     height: 25%;
     border-radius: 10%;
     border: 2px solid aqua;
@@ -148,16 +148,21 @@
 {
     .profile-box
     {
-        width: 80%;
+        width: 100%;
+        height: unset;
+        padding: 1em 0;
     }
     
     .profile-title
     {
-        font-size: 80%;
+        font-size: 100%;
+        border: none;
     }
 
     .button button
     {
         font-size: auto;
     }
+
+        
 }

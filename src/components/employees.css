@@ -8,7 +8,7 @@
     justify-content: center;
     align-items: center;
     gap: 0.3em;
-    background-color: black;
+    background: black;
 }
 
 .current-employees
@@ -79,7 +79,6 @@
     align-items: center;
     justify-content: start;
     align-items: center;
-    /* background-color: #fff; */
     gap: 0.5em;
     height: 6%;
     width: 97%;
@@ -87,7 +86,6 @@
   
 .search-box input 
 {
-    /* padding: 0.5em; */
     border-bottom: 2px solid aqua;
     background-color: rgba(27, 76, 60, 0.421);
     color: red;
@@ -99,13 +97,16 @@
   
 .search-box button 
 {
-    /* padding: 0.5em 1em; */
     border: 2px solid aqua;
-    font-size: 80%;
+    font-size: 60%;
+    font-weight: 700;
     border-radius: 10%;
-    background-color: inherit;
-    color: red;
+    background: aqua;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    padding: .7em;
+    color: black;
     cursor: pointer;
+    border: 2px solid aqua;
 }
   
 .search-box button:hover 
@@ -119,7 +120,7 @@
 {
     width: 97%;
     height: 95%;
-    background-color: inherit;
+    background: inherit;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -167,7 +168,7 @@
 
 .employees-table td 
 {
-    background-color: black;
+    background: black;
     font-size: 50%;
 }
 
@@ -180,7 +181,7 @@
 button 
 {
     cursor: pointer;
-    background-color: black;
+    background: black;
     color: aqua;
     border: 1px solid red;
     border-radius: 10%;
@@ -205,48 +206,132 @@ p
     {
         flex-direction: column;
         align-items: center;
-        height: 90%;
+        height: 100%;
     }
 
     .current-employees
     {
         height: 50%;
-        width: 98%;
+        width: 100%;
+        padding: .5em .7em;
     }
 
     .previous-employees
     {
         height: 50%;
-        width: 98%;
+        width: 100%;
+        padding: .5em .7em;
     }
 
     .title
     {
-        font-size: 40%;
+        font-size: 60%;
         height: 10%;
-        align-items: end;
+        width: 100%;
+        align-items: center;
+        border-radius: 0;
+        border: 2px solid aqua;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+        background-color: aqua;
+        color: black;
+        font-weight: 900;
+    }
+
+    .employees, 
+    .deleted-employees
+    {
+        border: none;
+        width: 100%;
     }
 
     .employees-table
     {
-    height: 90%;
-    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+    overflow-x: auto;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    align-items: flex-start;
     }
 
     .employees-table th 
     {
         background-color: inherit;
-        font-size: 50%;
+        font-size: 70%;
+        padding: .4em;
     }
 
     .employees-table td 
     {
         background-color: black;
-        font-size: 20%;
+        font-size: 70%;
+        padding: .3em;
     }
     
     button 
     {
         font-size: 50%;
+    }
+
+    .table-button
+    {
+        background: aqua;
+        border-radius: 0;
+        width: 100%;
+        color: black;
+
+    }
+
+    .table-div
+    {
+        display: flex;
+        flex-direction: column;
+        gap: .3em;
+    }
+
+    .search-box 
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5em;
+        width: 100%;
+        padding: .7em 0;
+    }
+      
+    .search-box input 
+    {
+        border: none;
+        border-bottom: 1px solid aqua;
+        background: rgba(27, 76, 60, 0.421);
+        color: white;
+        width: 90%;
+        outline: none;
+        font-size: 70%;
+        padding: 1.2em .4em;
+    }
+
+    .search-box input:focus
+    {
+        border: none;
+        border-bottom: 1px solid red;
+        background: rgba(27, 76, 60, 0.421);
+        transition: all .5s ease-in;
+        transition: all .5s ease-out;
+        color: white;
+    }
+      
+    .search-box button 
+    {
+        border: 2px solid aqua;
+        font-size: 60%;
+        font-weight: 700;
+        border-radius: 0;
+        background: aqua;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        padding: .7em .9em;
+        color: black;
+        cursor: pointer;
     }
 }

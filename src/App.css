@@ -1,22 +1,27 @@
+*
+{
+  box-sizing: border-box;
+}
+
 body
 {
   background-color: aquamarine;
-  padding: 5px;
+  padding: 0;
   margin: 0;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .App
 {
-  height: 97vh;
-  background-color: black;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.2em;
-  border-radius: 3%;
-  border-right: 4px solid red;
-  border-left: 4px solid red;
+  border: 4px solid rgba(255, 0, 0, 0.3);
+  padding: .5em;
 }
 
 /* ENDS */
@@ -26,36 +31,33 @@ body
 main
 {
   width: 100%;
-  height: 99%;
-  background-color: inherit;
+  height: 100%;
+  background: inherit;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.2em;
-  border-radius: 3%;
+  gap: 1em;
 }
 nav
 {
-  width: 98%;
-  height: 11%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1em;
-  background-color: inherit;
-  border-radius: 10%;
+  background: black;
+  padding: 0 1em;
 }
 
 .name
 {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  background-color: inherit;
-  width: 15%;
+  /* background: inherit; */
+  font-size: 1.3em;
   height: 100%;
-  border-radius: 10%;
   padding: 0;
   margin: 0;
 }
@@ -63,11 +65,10 @@ nav
 .gamefusion
 {
   width: 100%;
-  background-color: inherit;
+  background: inherit;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 15%;
 }
 
 span
@@ -85,14 +86,13 @@ span
 
 .content
 {
-  width: 98%;
+  width: 100%;
   height: 88%;
-  background-color: inherit;
+  background: black;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.2em;
-  border-radius: 3%;
 }
 
 @media only screen and (max-width: 768px)
@@ -100,12 +100,16 @@ span
   .App
   {
     flex-direction: column;
+    padding: 0;
+    border: none;
+    background: black;
+    justify-content: space-between;
   }
   nav 
   {
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    background: rgb(16, 0, 0);
     gap: 0;
   }
 
@@ -113,8 +117,13 @@ span
   {
     justify-content: center;
     align-items: center;
-    height: 65%;
-    font-size: 50%;
+    font-size: 80%;
+  }
+
+  .content
+  {
+    padding: .3em;
+    align-items: flex-start;
   }
   
 }

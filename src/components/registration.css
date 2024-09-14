@@ -67,20 +67,44 @@
 
     .registration-box
     {
-        width: 70%;
+        width: 100%;
+        height: unset;
+        padding: 0 1em;
     }
 
     .form-title
     {
-        font-size: 50%;
-        width: 70%;
-        height: 5%;
+        font-size: 60%;
+        width: 100%;
+        padding: 1em 0;
+        border: 2px solid aqua;
+        border-radius: 17px;
+        color: black;
+        background: aqua;
+        font-weight: 900;
     }
 
     .registration-box button 
     {
-        font-size: 50%;
+        font-size: 70%;
         width: auto;
-        height: 5%;
+        padding: 1em 2em;
+        background: aqua;
+        color: black;
+    }
+
+    .registration-box form
+    {
+        border: none;
+        width: 100%;
+        height: unset;
+        justify-content: flex-start;
+        padding: 1em 0;
+    }
+    
+    .registration-box input
+    {
+        padding: 1.5em .3em;
+        width: 100%;
     }
 }

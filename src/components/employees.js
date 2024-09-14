@@ -11,6 +11,7 @@ function Employees({ employees, onDeleteEmployee, onViewEmployee,deletedEmployee
     setFilteredEmployees(employees);
   }, [employees]);
 
+  // HANDLE SEARCH
   const handleSearch = () => {
     if (searchId) {
       const result = employees.filter(employee => employee.id.includes(searchId));
@@ -59,9 +60,9 @@ function Employees({ employees, onDeleteEmployee, onViewEmployee,deletedEmployee
                       <td>{employee.position}</td>
                       <td>{employee.phone}</td>
                       <td><img src={employee.image} alt='employee'/></td>
-                      <td>
-                        <button onClick={() => onViewEmployee(employee)}>View</button>
-                        <button onClick={() => onDeleteEmployee(index)}>Delete</button>
+                      <td className='table-div'>
+                        <button className='table-button' onClick={() => onViewEmployee(employee)}>View</button>
+                        <button className='table-button' onClick={() => onDeleteEmployee(index)}>Delete</button>
                       </td>
                     </tr>
                   ))}

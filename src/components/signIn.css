@@ -1,18 +1,19 @@
 .form-box
 {
     height: 100%;
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: inherit;
+    background: inherit;
+    padding: 0 2em;
 }
 
 .sign-in-form
 {
     width: 50%;
     height: 70%;
-    background-color: inherit;
+    background: inherit;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,7 +27,7 @@
 
 .admin
 {
-    background-color: inherit;
+    background: inherit;
     width: 75%;
     height: 15%;
     color: red;
@@ -43,7 +44,7 @@ form
 {
     width: 80%;
     height: 85%;
-    background-color: inherit;
+    background: inherit;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -57,7 +58,7 @@ form input
     height: 10%;
     border: none;
     border-bottom: 2px solid aqua;
-    background-color: rgba(11, 255, 255, 0.171);
+    background: rgba(11, 255, 255, 0.171);
     outline: none;
     font-size: 11px;
     color: white;
@@ -92,7 +93,7 @@ form button:hover
 {
     width: 50%;
     height: 100%;
-    background-color: inherit;
+    background: inherit;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,14 +115,12 @@ form button:hover
 
     .sign-in-form
     {
-        height: 50%;
-        width: 80%;
+        height: 40%;
+        width: 100%;
     }
     .logo-box
     {
-        height: 50%;
-        width: 70%;
-        align-items: start;
+        display: none;
     }
     
 }
