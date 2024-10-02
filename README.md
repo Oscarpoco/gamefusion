@@ -34,7 +34,7 @@ The project contains the following key components:
 ## Installation
 
 1. Clone the repository
-git clone https://github.com/your-username/employee-management-system.git
+git clone https://github.com/oscarpoco/employee-management-system.git
 cd employee-management-system
 
 2. Install dependencies
